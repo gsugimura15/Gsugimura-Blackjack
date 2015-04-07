@@ -1,8 +1,8 @@
 public class Playerhand{
 import java.util.Vector;
-   private Vector hand;   // Inspired from "professionally" written code, not really my idea. 
+   private Vector hand;   // Vector inspired from "professionally" written code, not my idea. 
    
-   public Hand() {
+   public vector Hand() {
       hand = new Vector();
    }
    

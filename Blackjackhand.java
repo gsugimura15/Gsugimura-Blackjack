@@ -1,4 +1,4 @@
-public class Blackjackhand extends Hand {
+public class Blackjackhand extends Playerhand {
  
      public int getBlackjackValue() {     
          int val;      
