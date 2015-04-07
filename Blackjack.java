@@ -9,17 +9,18 @@ public class Blackjack{
           Scanner kb = new Scanner(System.in);
        
           while (true) {
-            do{
               System.out.println("You have " + money + " dollars.");
                  System.out.println("How much do you want to bet?  (Enter 0 to leave.)");
                  bet = kb.nextInt();
                  if (bet < 0 || bet > money){
                      System.out.println("You must bet between 0 and " + money + ".");
               }
-              }
-              while(bet < 0 || bet > money);
+            if(bet > 0 && bet < money){
               if (bet == 0)
                  break;
+              else 
+                playBlackjack();
+            }
               playerWins = playBlackjack();
               if (playerWins)
                  money = money + bet;
@@ -85,14 +86,14 @@ public class Blackjack{
                System.out.println();
                System.out.println("Dealer is showing the " + dealerHand.getCard(0));
                System.out.println();
-               System.out.println("Hit or Stand? ");
-               String action;  // Inspired from "professional" code
-                  action = bk.nextLine();
-                  if (action != "Hit" && action != "Stand")
-                     System.out.println("Please respond with Hit or Stand");
-                  while (action != "Hit" && action != "Stand");
+               System.out.println("Hit (1) or Stand (2)? ");
+               int action;  // Inspired from "professional" code
+                  action = bk.nextInt();
+                  if (action != 1 || action != 2)
+                     System.out.println("Please respond with 1 or 2");
+                  while (action != 1 && action != 2);
     
-               if ( action == "Stand" ) {
+               if ( action == 2 ) {
                    break;
                }
                else {  

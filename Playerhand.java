@@ -2,7 +2,7 @@ import java.util.Vector;
 public class Playerhand{
    private Vector hand;   // Vector inspired from "professionally" written code, not my idea. 
    
-   public void Hand() {
+   public Playerhand(){ 
       hand = new Vector();
    }
    
