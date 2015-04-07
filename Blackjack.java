@@ -9,7 +9,7 @@ public class Blackjack{
           Scanner kb = new Scanner(System.in);
        
           while (true) {
-              System.out.println("You have " + money + " dollars.");
+              System.out.println("You have " + money + " dollar(s).");
                  System.out.println("How much do you want to bet?  (Enter 0 to leave.)");
                  bet = kb.nextInt();
                  if (bet < 0 || bet > money){
@@ -87,9 +87,9 @@ public class Blackjack{
                System.out.println("Dealer is showing the " + dealerHand.getCard(0));
                System.out.println();
                System.out.println("Hit (1) or Stand (2)? ");
-               int action;  // Inspired from "professional" code
+               int action;  
                   action = bk.nextInt();
-                  if (action != 1 || action != 2)
+                  if (action != 1 && action != 2)
                      System.out.println("Please respond with 1 or 2");
                   while (action != 1 && action != 2);
     
@@ -104,8 +104,8 @@ public class Blackjack{
                    System.out.println("Your card is the " + newCard);
                    System.out.println("Your total is now " + playerHand.getBlackjackValue());
                    if (playerHand.getBlackjackValue() > 21) {
-                       System.out.println();
                        System.out.println("Bust");
+                       System.out.println("");
                        System.out.println("Dealer's other card was the " + dealerHand.getCard(1));
                        return false;  
                    }
