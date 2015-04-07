@@ -5,11 +5,10 @@ public class Deck {
     
     public Deck() {
        deck = new Card[52];
-       //
        for ( int suit = 0; suit <= 3; suit++ ) {
           for ( int value = 1; value <= 13; value++ ) {
              deck[cardCt] = new Card(value,suit);
-             //cardCt++;
+             cardCt++;
           }
        }
        cardsUsed = 0;
@@ -24,3 +23,14 @@ public class Deck {
         }
         cardsUsed = 0;
     }
+        
+          public Card dealCard() {
+        if (cardsUsed == 52)
+           shuffle();
+        cardsUsed++;
+        return deck[cardsUsed - 1];
+          }
+        public int cardsLeft() {
+        return 52 - cardsUsed;
+    }
+}

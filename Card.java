@@ -14,7 +14,7 @@ public class Card {
                              
     private int value; 
                              
-    public Card(int theValue, int theSuit) {
+    public Card(int aValue, int aSuit) {
         value = aValue;
         suit = aSuit;
     }
@@ -27,22 +27,17 @@ public class Card {
         return value;
     }
     
-    public String getSuitAsString() {
+    public String getStringSuit() {
         switch ( suit ) {
-           case Clubs:   
-             return "Clubs";
-           case Diamonds:   
-             return "Diamonds";
-           case Hears: 
-             return "Hearts";
-           case Spades:    
-             return "Spades";
-           default:       
-             return "Invalid";
+           case 1: return "Clubs";
+           case 2: return "Diamonds";
+           case 3: return "Hearts";
+           case 4: return "Spades";
+           default: return "Invalid";
         }
     }
 
-   public String getStringValue() {
+   public String getStringValue() { 
         switch ( value ) {
           case 1: return "Ace";
           case 2: return "2";
