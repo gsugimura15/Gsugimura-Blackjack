@@ -33,7 +33,7 @@ public class Card {
            case 2: return "Diamonds";
            case 3: return "Hearts";
            case 4: return "Spades";
-           default: return "Invalid";
+           default: return "";
         }
     }
 
@@ -52,7 +52,7 @@ public class Card {
           case 11:return "Jack";
           case 12:return "Queen";
           case 13:return "King";
-          default:return "Invalid";
+          default: return "";
         }
     }
     

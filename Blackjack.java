@@ -1,14 +1,19 @@
 import java.util.Scanner;
 public class Blackjack{
   public static void main(String[] args){
-    System.out.println("Welcome to blackjack!");
+    System.out.println("Welcome to blackjack for beginners!");
+    System.out.println("In this game you will have on practice hand before any money is risked. Good luck!");
+    System.out.println("");
+    System.out.println("");
       int money;         
           int bet;            
           boolean playerWins;
           money = 100;  
           Scanner kb = new Scanner(System.in);
+
        
-          while (true) {
+          while (true) { // Creates infinite loop until a break statement
+            // Betting code
               System.out.println("You have " + money + " dollar(s).");
                  System.out.println("How much do you want to bet?  (Enter 0 to leave.)");
                  bet = kb.nextInt();
@@ -38,7 +43,7 @@ public class Blackjack{
        
        } 
    
-    static boolean playBlackjack() {
+    static boolean playBlackjack() { //Actually playing the game
           Deck deck; 
           Blackjackhand playerHand;
           Blackjackhand dealerHand;
@@ -46,18 +51,18 @@ public class Blackjack{
       
             
           
-          deck = new Deck();
+          deck = new Deck(); // New deck/hand for each player
           playerHand = new Blackjackhand();
           dealerHand = new Blackjackhand();
         
           
-          deck.shuffle();
-          dealerHand.addCard( deck.dealCard() );
-          dealerHand.addCard( deck.dealCard() );
-          playerHand.addCard( deck.dealCard() );
-          playerHand.addCard( deck.dealCard() );
+          deck.shuffle(); // SHuffles and deals
+          dealerHand.addCard(deck.dealCard());
+          dealerHand.addCard(deck.dealCard());
+          playerHand.addCard(deck.dealCard());
+          playerHand.addCard(deck.dealCard());
         
-          if (dealerHand.getBlackjackValue() == 21) {
+          if (dealerHand.getBlackjackValue() == 21) { // Check for dealer blackjack
                System.out.println("Dealer has the " + dealerHand.getCard(0) + " and the " + dealerHand.getCard(1) + ".");
                System.out.println("You hav the " + playerHand.getCard(0) + " and the " + playerHand.getCard(1) + ".");
                System.out.println();
@@ -65,7 +70,7 @@ public class Blackjack{
                return false;
           }
           
-          if (playerHand.getBlackjackValue() == 21) {
+          if (playerHand.getBlackjackValue() == 21) { // Check for Player blackjack
                System.out.println("Dealer has the " + dealerHand.getCard(0) + " and the " + dealerHand.getCard(1) + ".");
                System.out.println("You have the " + playerHand.getCard(0) + " and the " + playerHand.getCard(1) + ".");
                System.out.println();
@@ -74,7 +79,7 @@ public class Blackjack{
           }
           
           
-          while (true) {
+          while (true || false) {// Another infinite loop, player chooses to hit or stand
     
     
                System.out.println();
@@ -93,10 +98,10 @@ public class Blackjack{
                      System.out.println("Please respond with 1 or 2");
                   while (action != 1 && action != 2);
     
-               if ( action == 2 ) {
+               if ( action == 2 ) { // Keeps current cards
                    break;
                }
-               else {  
+               else {  // Gets a new card/result
                    Card newCard = deck.dealCard();
                    playerHand.addCard(newCard);
                    System.out.println();
@@ -107,17 +112,16 @@ public class Blackjack{
                        System.out.println("Bust");
                        System.out.println("");
                        System.out.println("Dealer's other card was the " + dealerHand.getCard(1));
-                       return false;  
+                       return false;
                    }
                }
-               
-          } 
+          }
           System.out.println();
           System.out.println("User stands.");
           System.out.println("Dealer's cards are");
           System.out.println("    " + dealerHand.getCard(0));
           System.out.println("    " + dealerHand.getCard(1));
-          while (dealerHand.getBlackjackValue() <= 16) {
+          while (dealerHand.getBlackjackValue() <= 17) { // Dealer hits until value above 17
              Card newCard = deck.dealCard();
              System.out.println("Dealer hits and gets the " + newCard);
              dealerHand.addCard(newCard);
@@ -132,18 +136,15 @@ public class Blackjack{
           System.out.println();
           if (dealerHand.getBlackjackValue() == playerHand.getBlackjackValue()) {
              System.out.println("Dealer wins on a tie. You lose.");
-             return false;
+             return false; 
           }
           else if (dealerHand.getBlackjackValue() > playerHand.getBlackjackValue()) {
              System.out.println("Dealer wins, " + dealerHand.getBlackjackValue() + " points to " + playerHand.getBlackjackValue() + ".");
-             return false;
+             return false; 
           }
           else {
              System.out.println("You win, " + playerHand.getBlackjackValue() + " points to " + dealerHand.getBlackjackValue() + ".");
              return true;
           }
-    
-       }  
-      
- }
- 
+       }
+    } 

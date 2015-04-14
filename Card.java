@@ -1,11 +1,11 @@
 public class Card {
 
-    public static int Clubs = 0;
+    public static int Clubs = 0;  // Suits
     public static int Diamonds = 1;
     public static int Hearts = 2;
     public static int Spades = 3;       
                             
-    public static int Ace = 1;
+    public static int Ace = 1; // Royals
     public static int Jack = 11; 
     public static int Queen = 12; 
     public static int King = 13;       
@@ -14,30 +14,29 @@ public class Card {
                              
     private int value; 
                              
-    public Card(int aValue, int aSuit) {
+    public Card(int aValue, int aSuit) { // Card has suit and value
         value = aValue;
         suit = aSuit;
     }
         
-    public int getSuit() {
+    public int getSuit() { // Returns suit
         return suit;
     }
     
-    public int getValue() {
+    public int getValue() { // Returns value
         return value;
     }
     
-    public String getStringSuit() {
+    public String getStringSuit() { //Inspired by "professional" code, not my idea...organized suits
         switch ( suit ) {
            case 1: return "Clubs";
            case 2: return "Diamonds";
            case 3: return "Hearts";
-           case 4: return "Spades";
-           default: return "";
+           default: return "Spades";
         }
     }
-
-   public String getStringValue() { 
+ 
+   public String getStringValue() {    //Organized values
         switch ( value ) {
           case 1: return "Ace";
           case 2: return "2";
@@ -51,12 +50,11 @@ public class Card {
           case 10:return "10";
           case 11:return "Jack";
           case 12:return "Queen";
-          case 13:return "King";
-          default: return "";
+          default: return "King";
         }
     }
     
-    public String toString() {
+    public String toString() { // Returns a string of the card 
         return getStringValue() + " of " + getStringSuit();
 
 }

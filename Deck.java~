@@ -5,6 +5,7 @@ public class Deck {
     
     public Deck() {
        deck = new Card[52];
+       int cardCt = 0;
        for ( int suit = 0; suit <= 3; suit++ ) {
           for ( int value = 1; value <= 13; value++ ) {
              deck[cardCt] = new Card(value,suit);
@@ -18,7 +19,7 @@ public class Deck {
         for ( int i = 51; i > 0; i-- ) {
             int shuf = (int)(Math.random()*(i+1));
             Card temp = deck[i];
-            deck[i] = deck[rand];
+            deck[i] = deck[shuf];
             deck[shuf] = temp;
         }
         cardsUsed = 0;
